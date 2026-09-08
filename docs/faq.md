@@ -1,121 +1,95 @@
-# FAQ
+> 🌐 本文档由 [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) 翻译,英文原版见原项目。
 
-## Q: Who maintains Puppeteer?
+# 常见问题(FAQ)
 
-The Chrome Browser Automation team maintains the library, but we'd love your help and
-expertise on the project! See our
-[contributing guide](https://pptr.dev/contributing).
+## 问:Puppeteer 由谁维护?
 
-## Q: What is the status of cross-browser support?
+Puppeteer 由 Chrome 浏览器自动化团队维护,但我们非常欢迎你为项目贡献帮助和专长!参见我们的
+[贡献指南](https://pptr.dev/contributing)。
 
-From Puppeteer v23.0.0 onwards Puppeteer provides support for both Chrome and Firefox.
+## 问:跨浏览器支持目前是什么状态?
 
-To automate Chrome Puppeteer uses the Chrome DevTools Protocol (CDP) by default, but it can
-also be automated using WebDriver BiDi which is the default for automating Firefox.
+从 Puppeteer v23.0.0 开始,Puppeteer 同时支持 Chrome 和 Firefox。
 
-To understand the subtle differences in API support refer to our
-[WebDriver BiDi guide](https://pptr.dev/webdriver-bidi).
+自动化 Chrome 时,Puppeteer 默认使用 Chrome DevTools 协议(CDP),但也可以改用 WebDriver BiDi;自动化 Firefox 则默认使用 WebDriver BiDi。
 
-## Q: Does Puppeteer support WebDriver BiDi?
+关于 API 支持上的细微差异,请参考我们的
+[WebDriver BiDi 指南](https://pptr.dev/webdriver-bidi)。
 
-From Puppeteer v23.0.0 and up Puppeteer has production-ready support for WebDriver BiDi
-to automate both Chrome and Firefox.
+## 问:Puppeteer 支持 WebDriver BiDi 吗?
 
-## Q: Will keep Puppeteer supporting CDP?
+从 Puppeteer v23.0.0 起,Puppeteer 已提供可用于生产环境的 WebDriver BiDi 支持,可以同时自动化 Chrome 和 Firefox。
 
-We are not going to stop supporting automation of Chrome with CDP - despite
-Puppeteer's support for WebDriver BiDi. To not break existing automation relying on CDP,
-but also to keep enabling automation use-cases unique to Chrome and not standardized
-with WebDriver BiDi.
+## 问:Puppeteer 会继续支持 CDP 吗?
 
-## Q: What are Puppeteer’s goals and principles?
+尽管 Puppeteer 已经支持 WebDriver BiDi,我们不会停止支持用 CDP 自动化 Chrome——这是为了不破坏已有依赖 CDP 的自动化流程,同时也是为了继续支撑那些 Chrome 独有、尚未被 WebDriver BiDi 标准化的自动化场景。
 
-The goals of the project are:
+## 问:Puppeteer 的目标和原则是什么?
 
-- Provide a reference implementation that highlights the capabilities of the
+项目目标包括:
+
+- 提供一个参考实现,展示
   [Chrome DevTools](https://chromedevtools.github.io/devtools-protocol/)
-  and [WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) protocols.
-- Grow the adoption of automated cross-browser testing.
-- Help dogfood new DevTools Protocol and WebDriver BiDi features...and catch bugs!
-- Learn more about the pain points of automated browser testing and help fill
-  those gaps.
+  和 [WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) 协议的能力。
+- 推动自动化跨浏览器测试的普及。
+- 帮助"吃自己的狗粮",验证新的 DevTools 协议和 WebDriver BiDi 特性……顺便抓 bug!
+- 深入了解自动化浏览器测试的痛点,并帮助填补这些空白。
 
-We adapt
-[Chromium principles](https://www.chromium.org/developers/core-principles) to
-help us drive product decisions:
+我们借鉴
+[Chromium 原则](https://www.chromium.org/developers/core-principles)来指导产品决策:
 
-- **Speed**: Puppeteer has almost zero performance overhead over an automated
-  page.
-- **Security**: Puppeteer operates off-process with respect to the browser, making
-  it safe to automate potentially malicious pages.
-- **Stability**: Puppeteer should not be flaky and should not leak memory.
-- **Simplicity**: Puppeteer provides a high-level API that’s easy to use,
-  understand, and debug.
+- **速度**:Puppeteer 对被自动化页面的性能开销几乎为零。
+- **安全**:Puppeteer 相对于浏览器运行在独立进程之外,因此自动化潜在恶意页面也是安全的。
+- **稳定**:Puppeteer 不应该行为飘忽,也不应该泄漏内存。
+- **简单**:Puppeteer 提供易于使用、易于理解、易于调试的高层 API。
 
-## Q: Is Puppeteer a replacement for Selenium?
+## 问:Puppeteer 是 Selenium 的替代品吗?
 
-Puppeteer is a Node.js based reference implementation of how to automate browsers
-with CDP and WebDriver BiDi - the same web standard the Selenium project is also
-contributing to.
+Puppeteer 是一个基于 Node.js 的参考实现,演示如何用 CDP 和 WebDriver BiDi 自动化浏览器——WebDriver BiDi 正是 Selenium 项目同样在参与贡献的 Web 标准。
 
-The Selenium project goes beyond what Puppeteer offers in multiple aspects: it provides
-bindings for more languages than just JavaScript and for example it also offers tooling
-to orchestrate automation at large, like Selenium Grid. Both is beyond Puppeteer's scope.
+Selenium 项目在多个方面超出了 Puppeteer 的范围:它提供的语言绑定不止 JavaScript,还提供大规模编排自动化的工具(例如 Selenium Grid)。这两点都不在 Puppeteer 的目标范围内。
 
-There are community projects that add capabilities to Puppeteer beyond its core,
-making things like testing more convenient. For example see:
+有一些社区项目在 Puppeteer 核心之上扩展能力,让测试等工作更方便。例如:
 
-- [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer) or
-- [Puppeteer's Angular integration](https://pptr.dev/integrations/ng-schematics)
+- [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer),或者
+- [Puppeteer 的 Angular 集成](https://pptr.dev/integrations/ng-schematics)
 
-## Q: Why doesn’t Puppeteer v.XXX work with a certain version of Chrome or Firefox?
+## 问:为什么 Puppeteer v.XXX 无法配合某个版本的 Chrome 或 Firefox 工作?
 
-Every Puppeteer release is tightly bundled with a specific browser release
-to ensure compatibility with the implementation of the underlying protocols,
-the Chrome DevTools Protocol and WebDriver BiDi.
+每个 Puppeteer 版本都与一个特定的浏览器版本紧密绑定,以确保与底层协议(Chrome DevTools 协议和 WebDriver BiDi)的实现保持兼容。
 
-This is to prevent changes in either [Chrome](https://pptr.dev/supported-browsers#chrome) or [Firefox](https://pptr.dev/supported-browsers#firefox) from unexpectedly breaking Puppeteer.
+这是为了防止 [Chrome](https://pptr.dev/supported-browsers#chrome) 或 [Firefox](https://pptr.dev/supported-browsers#firefox) 的变更意外破坏 Puppeteer。
 
-## Q: Which Chrome and Firefox version does Puppeteer use?
+## 问:Puppeteer 使用哪个版本的 Chrome 和 Firefox?
 
-Look for the `chrome` and `firefox` entries in
-[revisions.ts](https://github.com/puppeteer/puppeteer/blob/main/packages/puppeteer-core/src/revisions.ts).
+查看
+[revisions.ts](https://github.com/puppeteer/puppeteer/blob/main/packages/puppeteer-core/src/revisions.ts)
+中的 `chrome` 和 `firefox` 条目。
 
-## Q: What’s considered a “Navigation”?
+## 问:什么算一次"导航(Navigation)"?
 
-From Puppeteer’s standpoint, **“navigation” is anything that changes a page’s
-URL**. Aside from regular navigation where the browser hits the network to fetch
-a new document from the web server, this includes
-[anchor navigations](https://www.w3.org/TR/html5/single-page.html#scroll-to-fragid)
-and [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
-usage.
+在 Puppeteer 看来,**"导航"就是任何改变页面 URL 的行为**。除了浏览器访问网络、从 Web 服务器获取新文档这种常规导航之外,它还包括
+[锚点导航](https://www.w3.org/TR/html5/single-page.html#scroll-to-fragid)
+和 [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
+的使用。
 
-With this definition of “navigation,” **Puppeteer works seamlessly with
-single-page applications.**
+按照这个"导航"定义,**Puppeteer 可以无缝配合单页应用(SPA)工作。**
 
-## Q: What’s the difference between a “trusted" and "untrusted" input event?
+## 问:"可信(trusted)"和"不可信(untrusted)"输入事件有什么区别?
 
-In browsers, input events could be divided into two big groups: trusted vs.
-untrusted.
+在浏览器中,输入事件可以分为两大类:可信与不可信。
 
-- **Trusted events**: events generated by users interacting with the page, e.g.
-  using a mouse or keyboard.
-- **Untrusted event**: events generated by Web APIs, e.g. `document.createEvent`
-  or `element.click()` methods.
+- **可信事件**:由用户与页面交互产生的事件,例如使用鼠标或键盘。
+- **不可信事件**:由 Web API 产生的事件,例如 `document.createEvent` 或 `element.click()` 方法。
 
-Websites can distinguish between these two groups:
+网站可以区分这两类事件:
 
-- using an
+- 使用
   [`Event.isTrusted`](https://developer.mozilla.org/en-US/docs/Web/API/Event/isTrusted)
-  event flag
-- sniffing for accompanying events. For example, every trusted `'click'` event
-  is preceded by `'mousedown'` and `'mouseup'` events.
+  事件标志;
+- 探测伴随事件。例如,每个可信的 `'click'` 事件之前都会有 `'mousedown'` 和 `'mouseup'` 事件。
 
-For automation purposes it’s important to generate trusted events. **All input
-events generated with Puppeteer are trusted and fire proper accompanying
-events.** If, for some reason, one needs an untrusted event, it’s always
-possible to hop into a page context with `page.evaluate` and generate a fake
-event:
+就自动化而言,生成可信事件非常重要。**Puppeteer 生成的所有输入事件都是可信的,并且会正确触发伴随事件。**如果出于某些原因你需要不可信事件,随时可以用 `page.evaluate` 进入页面上下文并生成一个模拟事件:
 
 ```ts
 await page.evaluate(() => {
@@ -123,23 +97,23 @@ await page.evaluate(() => {
 });
 ```
 
-## Q: Does Puppeteer support media and audio playback?
+## 问:Puppeteer 支持媒体和音频播放吗?
 
-Puppeteer uses [Chrome for Testing](https://developer.chrome.com/blog/chrome-for-testing/) binaries
-by default which ship with proprietary codecs support starting from
-[M120](https://chromiumdash.appspot.com/commit/12d607016c31ea13579e897740c765be189ed6eb).
+Puppeteer 默认使用 [Chrome for Testing](https://developer.chrome.com/blog/chrome-for-testing/) 二进制文件,自
+[M120](https://chromiumdash.appspot.com/commit/12d607016c31ea13579e897740c765be189ed6eb)
+起这些构建自带专有编解码器支持。
 
-## Q: I am having trouble installing / running Puppeteer in my test environment. Where should I look for help?
+## 问:我在测试环境中安装/运行 Puppeteer 遇到问题,该去哪里找帮助?
 
-We have a
-[troubleshooting](https://pptr.dev/troubleshooting)
-guide for various operating systems that lists the required dependencies.
+我们有一份针对各类操作系统的
+[故障排查](https://pptr.dev/troubleshooting)
+指南,其中列出了所需的依赖。
 
-## Q: I have more questions! Where do I ask?
+## 问:我还有更多问题!在哪里提问?
 
-There are many ways to get help on Puppeteer:
+通过 Puppeteer 获取帮助有很多途径:
 
-- For questions: [Stack Overflow](https://stackoverflow.com/questions/tagged/puppeteer)
-- For bug reports: [GitHub Issues](https://github.com/puppeteer/puppeteer/issues)
+- 提问:[Stack Overflow](https://stackoverflow.com/questions/tagged/puppeteer)
+- 报告 bug:[GitHub Issues](https://github.com/puppeteer/puppeteer/issues)
 
-Make sure to search these channels before posting your question.
+发帖之前,请务必先在这些渠道中搜索一下是否已有答案。

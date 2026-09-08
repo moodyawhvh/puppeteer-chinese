@@ -1,48 +1,51 @@
-# Getting started
+> 🌐 本文档由 [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) 翻译,英文原版见原项目。
 
-Puppeteer will be familiar to people using other browser testing frameworks. You
-[launch](https://pptr.dev/api/puppeteer.puppeteernode.launch)/[connect](https://pptr.dev/api/puppeteer.puppeteernode.connect)
-a [browser](https://pptr.dev/api/puppeteer.browser),
-[create](https://pptr.dev/api/puppeteer.browser.newpage) some
-[pages](https://pptr.dev/api/puppeteer.page), and then manipulate them with
-[Puppeteer's API](https://pptr.dev/api).
+# 快速上手
 
-The following example searches [developer.chrome.com](https://developer.chrome.com/) for blog posts with text "automate beyond recorder", click on the first result and print the full title of the blog post.
+用过其他浏览器自动化/测试框架的人会对 Puppeteer 感到非常熟悉。你先
+[启动](https://pptr.dev/api/puppeteer.puppeteernode.launch)(launch)或
+[连接](https://pptr.dev/api/puppeteer.puppeteernode.connect)(connect)一个
+[浏览器](https://pptr.dev/api/puppeteer.browser)(browser),
+[创建](https://pptr.dev/api/puppeteer.browser.newpage)若干
+[页面](https://pptr.dev/api/puppeteer.page)(page),然后用
+[Puppeteer 的 API](https://pptr.dev/api) 操控它们。
+
+下面的示例会在 [developer.chrome.com](https://developer.chrome.com/) 上搜索包含文本 "automate beyond recorder" 的博客文章,点击第一条结果,并打印这篇博客的完整标题。
 
 ```ts
 import puppeteer from 'puppeteer';
-// Or import puppeteer from 'puppeteer-core';
+// 或者 import puppeteer from 'puppeteer-core';
 
-// Launch the browser and open a new blank page.
+// 启动浏览器并打开一个空白页面。
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
 
-// Navigate the page to a URL.
+// 将页面导航到指定 URL。
 await page.goto('https://developer.chrome.com/');
 
-// Set screen size.
+// 设置屏幕尺寸。
 await page.setViewport({width: 1080, height: 1024});
 
-// Open the search menu using the keyboard.
+// 使用键盘打开搜索菜单。
 await page.keyboard.press('/');
 
-// Type into search box using accessible input name.
+// 通过无障碍输入框名称在搜索框中输入内容。
 await page.locator('::-p-aria(Search)').fill('automate beyond recorder');
 
-// Wait and click on first result.
+// 等待并点击第一条结果。
 await page.locator('.devsite-result-item-link').click();
 
-// Locate the full title with a unique string.
+// 用一个唯一的字符串定位完整标题。
 const textSelector = await page
   .locator('::-p-text(Customize and automate)')
   .waitHandle();
 const fullTitle = await textSelector?.evaluate(el => el.textContent);
 
-// Print the full title.
+// 打印完整标题。
 console.log('The title of this blog post is "%s".', fullTitle);
 
 await browser.close();
 ```
 
-For more in-depth usage, check our [documentation](https://pptr.dev/docs)
-and [examples](https://github.com/puppeteer/puppeteer/tree/main/examples).
+想深入了解用法,请查阅我们的[文档](https://pptr.dev/docs)和
+[示例](https://github.com/puppeteer/puppeteer/tree/main/examples)。
