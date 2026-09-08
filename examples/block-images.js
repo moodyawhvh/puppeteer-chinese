@@ -16,8 +16,12 @@
 
 import puppeteer from 'puppeteer';
 
+// 启动浏览器并新建页面。
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
+
+// 开启请求拦截:所有图片请求直接中止,其余请求放行。
+// 可用于加速页面加载、节省流量。
 await page.setRequestInterception(true);
 page.on('request', request => {
   if (request.resourceType() === 'image') {
@@ -26,6 +30,8 @@ page.on('request', request => {
     request.continue();
   }
 });
+
+// 打开目标页面(此时图片已被拦截),并对整页截图。
 await page.goto('https://news.google.com/news/');
 await page.screenshot({path: 'news.png', fullPage: true});
 
