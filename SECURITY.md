@@ -1,11 +1,13 @@
-# Security policy
+> 🌐 本文档由 [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) 翻译,英文原版见原项目。
 
-The Puppeteer project takes security very seriously. Please use [Chromium’s process to report security issues](https://www.chromium.org/Home/chromium-security/reporting-security-bugs/).
+# 安全策略
 
-## Scope
+Puppeteer 项目高度重视安全。请使用 [Chromium 的安全漏洞报告流程](https://www.chromium.org/Home/chromium-security/reporting-security-bugs/)来报告安全问题。
 
-Puppeteer provides powerful capabilities for browser installation, automation, and inspection, and it is the responsibility of the calling code to ensure these are used safely and as intended.
+## 范围
 
-Several APIs in this project have the ability to perform actions such as writing files to disk (e.g. via browser downloads or screenshots) or dynamically loading Chrome extensions. These are intentional, documented features and are not vulnerabilities. Specifically, Man-in-the-Middle (MITM) attacks and the manipulation of Puppeteer or browser downloads via local access are not considered vulnerabilities.
+Puppeteer 提供了强大的浏览器安装、自动化与检查能力,确保这些能力被安全、按预期地使用是调用方代码的责任。
 
-We appreciate feedback and suggestions from developers on how this tool can make it easier for them to build a more secure user experience, but will treat these exclusively as feature requests, and not vulnerabilities in Puppeteer itself.
+本项目中若干 API 能够执行诸如向磁盘写入文件(例如通过浏览器下载或截图)或动态加载 Chrome 扩展等操作。这些是有意设计、有文档说明的功能,不属于漏洞。特别地,中间人(MITM)攻击,以及通过本地访问操纵 Puppeteer 或浏览器下载,均不被视为漏洞。
+
+我们欢迎开发者就"如何让这个工具帮助构建更安全的用户体验"提出反馈与建议,但此类内容一律按功能请求处理,而不视为 Puppeteer 本身的漏洞。
