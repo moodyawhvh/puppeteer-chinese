@@ -1,29 +1,26 @@
-# Headless mode
+> 🌐 本文档由 [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) 翻译,英文原版见原项目。
 
-By default Puppeteer launches the browser in
-[the Headless mode](https://developer.chrome.com/docs/chromium/new-headless/).
+# 无头模式(Headless mode)
+
+默认情况下,Puppeteer 以
+[无头模式](https://developer.chrome.com/docs/chromium/new-headless/)
+启动浏览器。
 
 ```ts
 const browser = await puppeteer.launch();
-// Equivalent to
+// 等价于
 const browser = await puppeteer.launch({headless: true});
 ```
 
-Before v22, Puppeteer launched the [old Headless mode](https://developer.chrome.com/docs/chromium/new-headless/) by default.
-The old headless mode is now known as
-[`chrome-headless-shell`](https://developer.chrome.com/blog/chrome-headless-shell)
-and ships as a separate binary. `chrome-headless-shell` does not match the
-behavior of the regular Chrome completely but it is currently more performant
-for automation tasks where the complete Chrome feature set is not needed. If the performance
-is more important for your use case, switch to `chrome-headless-shell` as following:
+在 v22 之前,Puppeteer 默认启动的是[旧版无头模式](https://developer.chrome.com/docs/chromium/new-headless/)。旧版无头模式现在称为
+[`chrome-headless-shell`](https://developer.chrome.com/blog/chrome-headless-shell),以独立二进制文件的形式发布。`chrome-headless-shell` 与常规 Chrome 的行为不完全一致,但对不需要完整 Chrome 功能集的自动化任务而言,它目前性能更好。如果你的使用场景更看重性能,可按如下方式切换到 `chrome-headless-shell`:
 
 ```ts
 const browser = await puppeteer.launch({headless: 'shell'});
 ```
 
-To launch a "headful" version of Chrome, set the
-[`headless`](https://pptr.dev/api/puppeteer.launchoptions) to `false`
-option when launching a browser:
+要启动"有头"(headful)版本的 Chrome,在启动浏览器时把
+[`headless`](https://pptr.dev/api/puppeteer.launchoptions) 选项设为 `false`:
 
 ```ts
 const browser = await puppeteer.launch({headless: false});
